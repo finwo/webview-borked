@@ -22,5 +22,10 @@ int main() {
   pthread_t pt_window;
   pthread_create(&pt_window, 0, thread_window, NULL);
   pthread_join(pt_window, NULL);
+
+#ifdef WITH_EXIT
+  pthread_exit(NULL);
+#endif
+
   return 0;
 }
