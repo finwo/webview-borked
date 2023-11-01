@@ -15,7 +15,6 @@ void * thread_window(void *arg) {
   webview_destroy(w);
   printf("thread_window finished\n");
   return NULL;
-
 }
 
 int main() {
@@ -24,8 +23,10 @@ int main() {
   pthread_join(pt_window, NULL);
 
 #ifdef WITH_EXIT
+  printf("thread_main finished\n");
   pthread_exit(NULL);
 #endif
 
+  printf("thread_main finished\n");
   return 0;
 }
