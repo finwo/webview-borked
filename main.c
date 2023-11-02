@@ -18,6 +18,10 @@ void * thread_window(void *arg) {
 }
 
 int main() {
+#ifdef ON_MAIN
+  thread_window(NULL);
+
+#else
   pthread_t pt_window;
   pthread_create(&pt_window, 0, thread_window, NULL);
   pthread_join(pt_window, NULL);
@@ -26,6 +30,8 @@ int main() {
   printf("thread_main finished\n");
   pthread_exit(NULL);
 #endif
+
+#endif // ON_MAIN
 
   printf("thread_main finished\n");
   return 0;
